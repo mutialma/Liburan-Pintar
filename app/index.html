@@ -1,1 +1,376 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LiburanPintar — AI Travel Planner Indonesia</title>
+  <meta name="description" content="Platform perencanaan liburan berbasis AI untuk wisatawan Indonesia. Cari destinasi terbaik sesuai budget dan preferensimu." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
+  <!-- ============================================================
+       NAVBAR
+       ============================================================ -->
+  <nav class="navbar">
+    <div class="container navbar__inner">
+      <a class="navbar__brand" href="#">
+        <div class="navbar__logo-icon">🧭</div>
+        <span class="navbar__brand-name">Liburan<span>Pintar</span></span>
+      </a>
+
+      <div class="navbar__links">
+        <a href="#">Beranda</a>
+        <a href="#how">Cara Kerja</a>
+        <a href="#planner">Rekomendasi</a>
+        <a href="#tips-section">Tips Hemat</a>
+      </div>
+
+      <button class="navbar__cta gradient-btn" onclick="document.getElementById('planner').scrollIntoView({behavior:'smooth'})">
+        Mulai Rencanakan →
+      </button>
+
+      <button class="navbar__hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
+        <span id="hamburger-icon" style="font-size:1.25rem;">☰</span>
+      </button>
+    </div>
+
+    <div class="navbar__mobile-menu" id="mobile-menu">
+      <a href="#">Beranda</a>
+      <a href="#how">Cara Kerja</a>
+      <a href="#planner">Rekomendasi</a>
+      <a href="#tips-section">Tips Hemat</a>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section class="hero">
+    <div class="hero__blobs">
+      <div class="hero__blob hero__blob--1"></div>
+      <div class="hero__blob hero__blob--2"></div>
+      <div class="hero__blob hero__blob--3"></div>
+    </div>
+    <div class="container hero__inner">
+      <div class="hero__content">
+        <div class="hero__pill">✨ AI-Powered Travel Planner Indonesia</div>
+        <h1 class="hero__title">
+          Liburan sesuai<br /><span class="gradient-text">budget</span>, tanpa ribet.
+        </h1>
+        <p class="hero__subtitle">
+          AI bantu cari destinasi terbaik berdasarkan budget, lokasi, dan preferensimu.
+          Dapat itinerary dan estimasi biaya langsung.
+        </p>
+        <div class="hero__actions">
+          <button class="hero__btn-primary gradient-btn"
+            onclick="document.getElementById('planner').scrollIntoView({behavior:'smooth'})">
+            🔍 Mulai Rencanakan
+          </button>
+          <button class="hero__btn-secondary" onclick="showExampleResults()">
+            📸 Lihat Contoh
+          </button>
+        </div>
+        <div class="hero__trust">
+          <div class="hero__trust-item"><span class="hero__trust-icon">✅</span> Gratis selamanya</div>
+          <div class="hero__trust-item"><span class="hero__trust-icon">✅</span> Tanpa registrasi</div>
+          <div class="hero__trust-item"><span class="hero__trust-icon">✅</span> 50+ destinasi</div>
+        </div>
+      </div>
+
+      <!-- Decorative card -->
+      <div class="hero__card-wrap">
+        <div style="position:relative;">
+          <div class="hero__card">
+            <div class="hero__card-header">
+              <span>Rekomendasi AI</span>
+              <span class="hero__card-new">Baru!</span>
+            </div>
+            <div class="hero__dest-item">
+              <div class="hero__dest-icon">🏖️</div>
+              <div><div class="hero__dest-name">Anyer Beach</div><div class="hero__dest-price">Rp250.000</div></div>
+              <span class="badge badge-dekat">Dekat</span>
+            </div>
+            <div class="hero__dest-item">
+              <div class="hero__dest-icon">🏔️</div>
+              <div><div class="hero__dest-name">Kawah Putih</div><div class="hero__dest-price">Rp650.000</div></div>
+              <span class="badge badge-populer">Populer</span>
+            </div>
+            <div class="hero__dest-item">
+              <div class="hero__dest-icon">🌴</div>
+              <div><div class="hero__dest-name">Bali Escape</div><div class="hero__dest-price">Rp3.500.000</div></div>
+              <span class="badge badge-premium">Premium</span>
+            </div>
+            <div class="hero__stats">
+              <div><div class="hero__stat-val">2.4K</div><div class="hero__stat-lbl">Destinasi</div></div>
+              <div><div class="hero__stat-val">98%</div><div class="hero__stat-lbl">Akurasi</div></div>
+              <div><div class="hero__stat-val">&lt;1s</div><div class="hero__stat-lbl">Respons</div></div>
+            </div>
+          </div>
+          <div class="hero__badge-ai">✨ AI Match 97%</div>
+          <div class="hero__badge-save">💰 Hemat 40%</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       HOW IT WORKS
+       ============================================================ -->
+  <section class="how-section" id="how">
+    <div class="container">
+      <h2 class="section-title font-display">Cara Kerja</h2>
+      <p class="section-subtitle">3 langkah mudah dapat itinerary impianmu</p>
+      <div class="how-grid">
+        <div class="how-card">
+          <div class="how-card__icon">🎯</div>
+          <div class="how-card__step">01</div>
+          <h3 class="how-card__title">Input Preferensimu</h3>
+          <p class="how-card__desc">Masukkan budget, lokasi asal, preferensi wisata, dan durasi perjalananmu.</p>
+          <span class="how-card__arrow">›</span>
+        </div>
+        <div class="how-card">
+          <div class="how-card__icon">🤖</div>
+          <div class="how-card__step">02</div>
+          <h3 class="how-card__title">AI Proses Instans</h3>
+          <p class="how-card__desc">Algoritma kami cocokkan 50+ destinasi dengan parameter dan budgetmu secara real-time.</p>
+          <span class="how-card__arrow">›</span>
+        </div>
+        <div class="how-card">
+          <div class="how-card__icon">🗺️</div>
+          <div class="how-card__step">03</div>
+          <h3 class="how-card__title">Dapat Itinerary Lengkap</h3>
+          <p class="how-card__desc">Terima rekomendasi destinasi, estimasi biaya rinci, itinerary, dan tips hemat.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PLANNER FORM
+       ============================================================ -->
+  <section class="planner-section" id="planner">
+    <div class="container-sm">
+      <h2 class="section-title font-display">Rencanakan Liburanmu</h2>
+      <p class="section-subtitle">Isi detail liburan impianmu di bawah ini</p>
+
+      <div class="form-card">
+
+        <!-- BUDGET -->
+        <div class="form-group">
+          <label class="form-label">
+            <span class="form-label-icon">💰</span> Budget Perjalanan
+          </label>
+          <div class="budget-presets">
+            <button class="budget-preset-btn" data-cat="hemat" onclick="setBudgetCategory('hemat')">🪙 Hemat</button>
+            <button class="budget-preset-btn active" data-cat="standar" onclick="setBudgetCategory('standar')">✈️ Standar</button>
+            <button class="budget-preset-btn" data-cat="premium" onclick="setBudgetCategory('premium')">💎 Premium</button>
+          </div>
+          <div class="budget-input-wrap">
+            <span class="budget-input-prefix">Rp</span>
+            <input type="number" id="budget-number" class="budget-input"
+              value="1500000" placeholder="0"
+              oninput="onBudgetInput(this.value)" />
+          </div>
+          <input type="range" id="budget-range" class="budget-range"
+            min="100000" max="10000000" step="100000" value="1500000"
+            oninput="onBudgetRange(this.value)" />
+          <div class="budget-range-labels">
+            <span>Rp100rb</span>
+            <span id="budget-current" class="current">Rp1.500.000</span>
+            <span>Rp10jt</span>
+          </div>
+        </div>
+
+        <!-- LOKASI -->
+        <div class="form-group">
+          <label class="form-label">
+            <span class="form-label-icon">📍</span> Kota Asal
+          </label>
+          <div class="location-row">
+            <input type="text" id="location-input" class="location-input"
+              placeholder="Contoh: Jakarta, Surabaya, Bandung..." />
+            <button class="location-detect" onclick="onLocationDetect()">
+              🧭 Deteksi
+            </button>
+          </div>
+        </div>
+
+        <!-- PREFERENSI -->
+        <div class="form-group">
+          <label class="form-label">
+            <span class="form-label-icon">✨</span> Preferensi Wisata
+          </label>
+          <div class="pref-wrap" id="pref-container"></div>
+        </div>
+
+        <!-- DURASI -->
+        <div class="form-group">
+          <label class="form-label">
+            <span class="form-label-icon">⏰</span> Durasi Perjalanan
+          </label>
+          <div class="duration-grid" id="duration-container"></div>
+        </div>
+
+        <!-- SUBMIT -->
+        <button class="search-btn gradient-btn" id="search-btn" onclick="handleSearch()">
+          🔍 Cari Rekomendasi
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       LOADING STATE
+       ============================================================ -->
+  <div id="loading-state" style="display:none; padding:2rem 1rem;">
+    <div class="container-sm">
+      <div id="skeleton-inner"></div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       EMPTY STATE
+       ============================================================ -->
+  <div id="empty-state" style="padding:2rem 1rem;">
+    <div class="container-sm">
+      <div class="empty-state">
+        <div class="empty-state__icon">🗺️</div>
+        <h3 class="empty-state__title">Belum ada rekomendasi</h3>
+        <p class="empty-state__text">Isi form di atas dan klik "Cari Rekomendasi" untuk melihat destinasi terbaik untukmu</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       RESULTS MOUNT
+       ============================================================ -->
+  <div id="results-mount"></div>
+
+  <!-- ============================================================
+       TIPS SECTION
+       ============================================================ -->
+  <section class="tips-section" id="tips-section">
+    <div class="container">
+      <h2 class="section-title font-display">Tips Hemat Liburan 🪙</h2>
+      <p class="section-subtitle">Kumpulan tips dari ribuan traveler Indonesia</p>
+      <div class="tips-grid" id="tips-grid"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <div class="footer__logo">
+            <div class="footer__logo-icon">🧭</div>
+            <span class="footer__logo-name">Liburan<span>Pintar</span></span>
+          </div>
+          <p class="footer__desc">Platform perencanaan liburan berbasis AI untuk wisatawan Indonesia. Cari destinasi terbaik sesuai budget dan preferensimu.</p>
+          <button class="footer__cta gradient-btn"
+            onclick="document.getElementById('planner').scrollIntoView({behavior:'smooth'})">
+            → Mulai Gratis
+          </button>
+        </div>
+        <div class="footer__links">
+          <div>
+            <div class="footer__links-title">Produk</div>
+            <ul>
+              <li><a href="#">Perencana AI</a></li>
+              <li><a href="#">Destinasi</a></li>
+              <li><a href="#">Tips Hemat</a></li>
+              <li><a href="#">Komunitas</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="footer__links-title">Perusahaan</div>
+            <ul>
+              <li><a href="#">Tentang Kami</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Karir</a></li>
+              <li><a href="#">Kontak</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2025 LiburanPintar. Dibuat dengan ❤️ untuk traveler Indonesia.</span>
+        <div style="display:flex;gap:1rem;">
+          <a href="#">Privasi</a>
+          <a href="#">Syarat Penggunaan</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       MOBILE STICKY CTA
+       ============================================================ -->
+  <div class="mobile-sticky">
+    <button class="mobile-sticky-btn gradient-btn"
+      onclick="document.getElementById('planner').scrollIntoView({behavior:'smooth'})">
+      🔍 Rencanakan Liburanmu
+    </button>
+  </div>
+
+  <!-- ============================================================
+       SCRIPTS
+       ============================================================ -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+  <script>
+    // Init preferences & duration buttons
+    document.addEventListener("DOMContentLoaded", () => {
+      // Preferences
+      const prefContainer = document.getElementById("pref-container");
+      if (prefContainer) {
+        preferenceList.forEach(p => {
+          const btn = document.createElement("button");
+          btn.className = "pref-btn";
+          btn.dataset.pref = p;
+          btn.textContent = p;
+          btn.onclick = () => togglePreference(p);
+          prefContainer.appendChild(btn);
+        });
+      }
+
+      // Duration
+      const durContainer = document.getElementById("duration-container");
+      if (durContainer) {
+        durationList.forEach(d => {
+          const btn = document.createElement("button");
+          btn.className = "duration-btn" + (d === state.duration ? " active" : "");
+          btn.dataset.dur = d;
+          btn.textContent = d;
+          btn.onclick = () => setDuration(d);
+          durContainer.appendChild(btn);
+        });
+      }
+
+      // Saving tips grid
+      const tipsGrid = document.getElementById("tips-grid");
+      if (tipsGrid) {
+        savingTips.forEach(t => {
+          const card = document.createElement("div");
+          card.className = "tip-card";
+          card.innerHTML = `<div class="tip-card__icon">${t.icon}</div><div class="tip-card__text">${t.tip}</div>`;
+          tipsGrid.appendChild(card);
+        });
+      }
+
+      // Skeleton inner
+      const skelInner = document.getElementById("skeleton-inner");
+      if (skelInner) {
+        skelInner.innerHTML =
+          renderSkeletonCard() +
+          `<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;">
+            ${[1,2,3].map(() => `<div class="shimmer" style="height:10rem;border-radius:1.5rem;"></div>`).join("")}
+          </div>`;
+      }
+    });
+  </script>
+</body>
+</html>
